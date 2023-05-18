@@ -1,0 +1,73 @@
+html {
+    text-align: center;
+    font-family: monospace;
+}
+body {
+    margin: 0;
+}
+.container {
+    display: flex;
+    min-height: 95vh;
+    height: 100vh; 
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;  
+    background-color: lightblue;
+}
+
+#display { grid-area: display;}
+.calculator {
+    background-color: rgb(230, 223, 223);
+    display: grid;
+    grid-template-areas:
+    'display display display display'
+    'display display display display';
+    width: 40rem;
+    height: 50rem;
+    border: 2px solid black;
+    border-radius: 2%;
+    gap: 1rem;
+    padding: 1rem;
+}
+.calculator > div {
+    border: 1px solid black;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    background-color: rgb(78, 78, 209);
+    
+}
+
+.calculator > div:hover {
+    background-color: rgb(69, 69, 184);
+}
+
+.calculator > div:active {
+    background-color: rgb(55, 55, 145);
+}
+.calculator > #display { 
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-content: center;
+    padding-right: 1rem;
+    border: 1px solid black;
+}
+
+/* Button coloring */
+
+#negator, #modulo, #divide, #multiply, #subtract, #add, #equals {
+    background-color: rgb(226, 226, 32);
+}
+
+#negator:hover, #modulo:hover, #divide:hover, #multiply:hover, #subtract:hover, #add:hover, #equals:hover {
+    background-color: rgb(196, 196, 26);
+}
+#negator:active, #modulo:active, #divide:active, #multiply:active, #subtract:active, #add:active, #equals:active {
+    background-color: rgb(156, 156, 20);
+}
+
+#clear { background-color: rgb(206, 36, 36);}
+#clear:hover { background-color: rgb(175, 31, 31);}
+#clear:active { background-color: rgb(151, 26, 26);}
