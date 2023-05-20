@@ -27,8 +27,8 @@ let b = [];
 let operator;
 let index = 0; //index indicates if the function has already been used.
 function operate(a,b,operator) {
-  let aOp = parseInt(a.join(''));
-  let bOp = parseInt(b.join(''));
+  let aOp = parseFloat(a.join(''));
+  let bOp = parseFloat(b.join(''));
   b.length = 0;
     if(index < 1) {
         if(operator === "+") {
@@ -86,7 +86,7 @@ function displayNumbers() {
 
 let displayText = document.createElement("p");
 displayText.classList.add("displayText");
-displayText.innerText = "Created by JaviDev98";
+displayText.innerText = "Created by JaviDev98"; //Default text
 
 let display = document.querySelector("#display");
 display.innerHTML = displayText.innerText;
@@ -138,6 +138,8 @@ let buttonNine = document.querySelector("#nine");
 buttonNine.addEventListener('click', function () {operator == null ? a.push(9) : b.push(9)});
 buttonNine.addEventListener('click', displayNumbers);
 
+let point = document.querySelector("#point");
+point.addEventListener('click', function () {operator == null ? a.push(".") : b.push(".")});
 
 let clear = document.querySelector("#clear");
 clear.addEventListener('click',function () {a = []; b = []; operator = null; result = 0; index = 0; display.innerText = "Created by JaviDev98";})
@@ -146,9 +148,19 @@ let equals = document.querySelector("#equals");
 equals.addEventListener('click', function() { index < 1 ? operate(a,b,operator) : operate(result,b,operator)});
 equals.addEventListener('click', function(){display.innerText = result;});
 
-let sum = document.querySelector("#add");
-sum.addEventListener('click',function() {operator = "+"});
+let sumButton = document.querySelector("#add");
+sumButton.addEventListener('click',function() {operator = "+"});
 
-let negator = document.querySelector("#negator");
+let negatorButton = document.querySelector("#negator");
 
-let modulo = document.querySelector("#modulo");
+let moduloButton = document.querySelector("#modulo");
+moduloButton.addEventListener('click',function() {operator = "%"});
+
+let divideButton = document.querySelector("#divide");
+divideButton.addEventListener('click',function() {operator = "/"});
+
+let multiplyButton = document.querySelector("#multiply");
+multiplyButton.addEventListener('click',function() {operator = "*"});
+
+let subtractButton = document.querySelector("#subtract");
+subtractButton.addEventListener('click',function() {operator = "-"})
