@@ -23,9 +23,13 @@ function CalcModulo(a,b) {
 let result;
 let a = [];
 let b = [];
+
 let operator;
 let index = 0; //index indicates if the function has already been used.
 function operate(a,b,operator) {
+  debugger;
+  a = parseInt(a.join(''));
+  b = parseInt(b.join(''));
     if(index < 1) {
         if(operator === "+") {
             result = add(a,b);
