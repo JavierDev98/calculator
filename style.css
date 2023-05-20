@@ -28,6 +28,7 @@ body {
     border-radius: 2%;
     gap: 1rem;
     padding: 1rem;
+    box-shadow: 10px 10px 5px rgb(123, 129, 129);
 }
 .calculator > div {
     border: 1px solid black;
