@@ -86,7 +86,7 @@ function displayNumbers() {
 
 let displayText = document.createElement("p");
 displayText.classList.add("displayText");
-displayText.innerText = "Created by JaviDev98"; //Default text
+displayText.innerText = "Created by JaviDev98"; //Default message
 
 let display = document.querySelector("#display");
 display.innerHTML = displayText.innerText;
@@ -142,16 +142,40 @@ let point = document.querySelector("#point");
 point.addEventListener('click', function () {operator == null ? a.push(".") : b.push(".")});
 
 let clear = document.querySelector("#clear");
-clear.addEventListener('click',function () {a = []; b = []; operator = null; result = 0; index = 0; display.innerText = "Created by JaviDev98";})
+clear.addEventListener('click',function () {a.length = 0; b.length = 0; operator = null; result = 0; index = 0; display.innerText = "Created by JaviDev98";})
 
 let equals = document.querySelector("#equals");
 equals.addEventListener('click', function() { index < 1 ? operate(a,b,operator) : operate(result,b,operator)});
 equals.addEventListener('click', function(){display.innerText = result;});
 
+//all of the operators
+
 let sumButton = document.querySelector("#add");
 sumButton.addEventListener('click',function() {operator = "+"});
 
 let negatorButton = document.querySelector("#negator");
+negatorButton.addEventListener('click',negate);
+negatorButton.addEventListener('click', displayNumbers);
+let beenUsed = null;
+function negate() {
+  if (operator == null) {
+    if (beenUsed == null) {
+      a.unshift("-");
+      beenUsed++;
+    } else {
+      a.splice(0, 1);
+      beenUsed = null;
+    }
+  } else {
+    if (beenUsed == null) {
+      b.unshift("-");
+      beenUsed++;
+    } else {
+      b.splice(0, 1);
+      beenUsed = null;
+    }
+  }
+};
 
 let moduloButton = document.querySelector("#modulo");
 moduloButton.addEventListener('click',function() {operator = "%"});
@@ -164,3 +188,4 @@ multiplyButton.addEventListener('click',function() {operator = "*"});
 
 let subtractButton = document.querySelector("#subtract");
 subtractButton.addEventListener('click',function() {operator = "-"})
+
