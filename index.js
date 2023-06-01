@@ -23,14 +23,14 @@ function CalcModulo(a,b) {
 let result;
 let a = [];
 let b = [];
-
 let operator;
 let index = 0; //index indicates if the function has already been used.
+
 function operate(a,b,operator) {
-  let aOp = parseFloat(a.join(''));
-  let bOp = parseFloat(b.join(''));
-  b.length = 0;
+
+let bOp = parseFloat(b.join(''));
     if(index < 1) {
+      let aOp = parseFloat(a.join(''));
         if(operator === "+") {
             result = add(aOp,bOp);
             
@@ -69,7 +69,8 @@ function operate(a,b,operator) {
     }
    }
    index++;
- 
+   a.length = 0;
+   b.length = 0;
   return result;
 }
 
@@ -146,6 +147,7 @@ clear.addEventListener('click',function () {a.length = 0; b.length = 0; operator
 
 let equals = document.querySelector("#equals");
 equals.addEventListener('click', function() { index < 1 ? operate(a,b,operator) : operate(result,b,operator)});
+//equals.addEventListener('click', function() { b});
 equals.addEventListener('click', function(){display.innerText = result;});
 
 //all of the operators
